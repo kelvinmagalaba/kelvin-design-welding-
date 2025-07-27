@@ -1,0 +1,113 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>New Invite</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font Great Vibes for elegant cursive -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #1c1c1c;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .new-invite {
+            text-align: center;
+            background-color: #2c2c2c;
+            padding: 30px 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgb(19, 16, 2);
+            width: 90%;
+            max-width: 420px;
+        }
+        
+        .new-invite label {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: #e60000;
+            display: block;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px #7f0000;
+        }
+        
+        .new-invite input {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 15px;
+            border: 2px solid #e60000;
+            color: #b00000;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(230, 0, 0, 0.7);
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+            background-color: #fff9f9;
+            margin-bottom: 30px;
+        }
+        
+        .new-invite input::placeholder {
+            color: #d08080;
+            font-style: italic;
+        }
+        
+        .new-invite input:focus {
+            outline: none;
+            border-color: gold;
+            box-shadow: 0 0 25px gold;
+            background-color: #fff;
+        }
+        
+        .new-invite button {
+            background-color: #e60000;
+            color: gold;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            padding: 12px 40px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 0 15px #e60000;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            user-select: none;
+        }
+        
+        .new-invite button:hover {
+            background-color: #b00000;
+            box-shadow: 0 0 30px gold;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="new-invite">
+        <label for="inviteeName">Invitee Name:</label>
+        <input type="text" id="inviteeName" placeholder="Andika Jina Hapa...">
+        <button id="submitBtn">Submit</button>
+    </div>
+
+    <script>
+        document.getElementById("submitBtn").addEventListener("click", function() {
+            const input = document.getElementById("inviteeName");
+            const val = input.value.trim();
+            if (!val) {
+                alert("Tafadhali andika jina kwanza!");
+                input.focus();
+                return;
+            }
+            const inviteeName = btoa(val);
+            window.location.href = `card.html#invitee=${encodeURIComponent(inviteeName)}`;
+        });
+    </script>
+</body>
+
+</html>
